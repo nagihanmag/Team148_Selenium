@@ -1,9 +1,6 @@
 package day03_locators;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
@@ -52,7 +49,11 @@ public class C06_Locators {
 
          */
 
+
+
+
         //7-  price range filtresinde min degere 40, max degere 200 yazip filtreleyin
+
 
         WebElement minFiyatKutusu = driver.findElement(By.xpath("//*[@*='form-control minPrice']"));
         minFiyatKutusu.clear();
@@ -63,6 +64,10 @@ public class C06_Locators {
         maxFiyatKutusu.sendKeys("200");
 
         Thread.sleep(1000);
+
+
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
 
         driver.findElement(By.xpath("//*[@*='price-range-button']"))
                 .click();
